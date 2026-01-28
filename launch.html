@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>糖尿病用藥決策支援系統 - Launch</title>
-    <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+  <meta charset="UTF-8">
+  <title>Diabetes CDS Launch</title>
+  <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
 </head>
 <body>
-    <script>
-        FHIR.oauth2.authorize({
-            // 1. Client ID
-            "clientId": "diabetes-cdss-app", 
-
-            // 2. Scopes
-            "scope": "launch patient/*.read openid fhirUser",
-
-            // 3. Redirect URI: 改為指向您的 index.html (即原本的 APP 檔案)
-            "redirectUri": "index.html", 
-
-            "completeInTarget": true
-        });
-    </script>
-    <p>正在重新導向至 THAS Sandbox 授權頁面...</p>
+  <script>
+    FHIR.oauth2.authorize({
+      clientId: "diabetes-cdss-app",
+      scope: "launch patient.read openid fhirUser observation.read condition.read",
+      redirectUri: "app.html",
+      completeInTarget: true
+    });
+  </script>
+  <p>Launching Diabetes CDS App...</p>
 </body>
 </html>
